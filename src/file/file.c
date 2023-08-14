@@ -3,9 +3,9 @@
 //
 #include <string.h>
 
-extern int __CreateFile(char[12]);
+extern int __CreateFile(char*);
 extern int __CloseFile(int);
-extern int __CreateFileWithoutDelete(char[12]);
+extern int __CreateFileWithoutDelete(char*);
 extern int __mkdir(char*);
 extern int __rmdir(char*);
 extern int __setcurrentfolder(char*);
@@ -15,13 +15,13 @@ extern int __writefile(int, char*, size_t);
 extern char* __readfile(int, size_t);
 
 typedef enum { false, true } bool;
-typedef file struct file
+typedef file struct
 {
     char filename*;
     char extension*;
     char* data;
     size_t size;
-};
+} file;
 void FileInit(file* f, char* filename, size_t filename_size, char* extension, size_t extension_size, char* data, size_t size)
 {
     memcpy(f->filename, filename, filename_size);

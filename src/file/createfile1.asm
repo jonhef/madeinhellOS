@@ -6,7 +6,7 @@ global __CreateFileWithoutDelete
 __CreateFileWithoutDelete:
     ; rcx - file's name
     mov ah,5Bh
-    mov dx,rcx
+    mov dx,[rcx]
     xor cx,cx
     int 21h
     jnc close_file

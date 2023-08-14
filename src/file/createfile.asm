@@ -6,7 +6,7 @@ global __CreateFile
 __CreateFile:
     ; rcx - file's name
     mov ah,3Ch
-    mov dx,rcx
+    mov dx,[rcx]
     xor cx,cx
     int 21h
     jnc close_file
