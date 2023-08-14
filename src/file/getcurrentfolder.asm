@@ -12,5 +12,5 @@ __getcurrentfolder:
     mov si, offset currentFolder
     int 21h
 
-    lea rax, currentFolder
+    lea rax, [currentFolder]
     ret
