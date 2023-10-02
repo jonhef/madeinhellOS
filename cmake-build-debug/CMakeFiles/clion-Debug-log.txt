@@ -1,1 +1,0 @@
-CMakeLists.txt not found in C:\Users\d\CLionProjects\madeinhellOS Select CMakeLists.txt
