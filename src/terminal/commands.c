@@ -1,2 +1,0 @@
-#define FOLDER "/system/commands"
-
