@@ -9,6 +9,10 @@ struct memory_block {
     bool is_used;
     //next block is default_memory_block_size+start, end is default_memory_block_size+start-1
 };
+struct ptr {
+    void* ptr;
+    unsigned long long size;
+};
 
 //sizeof(unsigned long long) = 8
 //size of memory_block = 8B
@@ -36,7 +40,7 @@ void init_memory()
     }
 }
 
-void* malloc(unsigned long long size)
+struct ptr* malloc(unsigned long long size)
 {
     #ifndef INIT_MEMORY
     throw "MEMORY IS NOT INITIALIZED";
@@ -69,29 +73,82 @@ void* malloc(unsigned long long size)
             continue;
         }
     }
+    struct ptr* ptr;
+    ptr->ptr = res;
+    ptr->size = size;
     if (iter_blocks == memory_blocks_end)
-        return NULL;
+    {
+        ptr->ptr = NULL;
+        ptr->size = NULL;
+        return ptr;
+    }
     iter_blocks = (struct memory_block*)res;
     for (int i = 0; i < size / default_memory_block_size; ++i)
     {
         iter_blocks->is_used = true;
         ++iter_blocks;
     }
-    return res;
+    return ptr;
 }
 
-void free(void* ptr)
+void free(struct ptr* ptr)
 {
-    if (ptr == NULL)
+    if (ptr->ptr == NULL)
     {
         return;
     }
     struct memory_block* iter_blocks = memory_blocks;
     for (;iter_blocks != memory_blocks_end;iter_blocks++)
     {
-        if (iter_blocks->sector == (unsigned long long)ptr)
+        if (iter_blocks->sector == (unsigned long long)(ptr->ptr))
         {
-            iter_blocks->is_used = false;
+            for (int i = 0; i < ptr->size / default_memory_block_size; ++i)
+            {
+                iter_blocks->is_used = false;
+                return;
+            }
         }
+    }
+}
+
+struct ptr* realloc(struct ptr* ptr, unsigned long long size)
+{
+    if (ptr->ptr == NULL)
+    {
+        return ptr;
+    }
+    if (ptr->size == size)
+    {
+        return ptr;
+    }
+    if (size % default_memory_block_size != 0)
+    {
+        size += default_memory_block_size - (size % default_memory_block_size);
+    }
+    if (ptr->size < size)
+    {
+        unsigned long long new_blocks = (size - ptr->size) / default_memory_block_size;
+        for (int i = 0; i < new_blocks; ++i)
+        {
+            if ((memory_blocks + (unsigned long long)ptr->ptr/default_memory_block_size + i)->is_used == true)
+            {
+                return ptr;
+            }
+            else
+            {
+                (memory_blocks + (unsigned long long)ptr->ptr/default_memory_block_size + i)->is_used = true;
+            }
+        }
+        return ptr;
+    }
+    if (ptr->size > size)
+    {
+        unsigned long long last_block = ptr->size / default_memory_block_size;
+        for (int i = size / default_memory_block_size + 1; i != last_block; ++i)
+        {
+            (memory_blocks + ((unsigned long long)ptr->ptr)/default_memory_block_size + i)->is_used = false;
+        }
+        ptr->size = size;
+        return ptr;
     }
 }
