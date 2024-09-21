@@ -1,6 +1,7 @@
 struct string {
     char* data;
-    unsigned int size;
+    unsigned long long size;
+    unsigned long long capacity;
 };
 
 void string_init_char_size(struct string* s, char* data, unsigned int size);

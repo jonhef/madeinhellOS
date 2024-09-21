@@ -9,10 +9,6 @@ struct memory_block {
     bool is_used;
     //next block is default_memory_block_size+start, end is default_memory_block_size+start-1
 };
-struct ptr {
-    void* ptr;
-    unsigned long long size;
-};
 
 //sizeof(unsigned long long) = 8
 //size of memory_block = 8B
