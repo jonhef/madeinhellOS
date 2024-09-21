@@ -10,6 +10,8 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#define NULL 0
+
 // Указанная размерность характерна только для архитектуры x86
 // Подробнее про типы данных: https://metanit.com/cpp/c/2.3.php
 
@@ -19,6 +21,7 @@ typedef unsigned short	u16;	// и т.д.
 typedef 		 short	s16;
 typedef unsigned char	u8;
 typedef 		 char	s8;
+typedef enum { true, false } bool;
 
 void	memcpy(u8 *src, u8 *dest, u32 bytes);
 
