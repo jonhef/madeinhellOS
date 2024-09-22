@@ -172,8 +172,8 @@ void string_delete(struct string* xs)
     ptr->ptr = xs->data;
     ptr->size = xs->size;
     free(ptr);
-    ptr->ptr = NULL;
-    ptr->size = NULL;
-    ptr->capacity = NULL;
+    xs->data = NULL;
+    xs->size = NULL;
+    xs->capacity = NULL;
     return;
 }
