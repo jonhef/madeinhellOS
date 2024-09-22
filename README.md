@@ -3,7 +3,7 @@
 Contains types(u8, u16, u32, u64, s8, s16, s32, s64, bool)
 - `memcpy(u8 *src, u8 *dest, u32 bytes)` - copies u8 data from one memory location to another
 ## zlib
-Basic open source zlib library maded by Apple inc.
+Basic open source zlib library written by Apple inc.
 ## string/string.h
 Basic string library realized by me specially for madeinhellOS
 - `string_init_char_size(struct string* s, char* data, unsigned int size)` - initializes string with char* data and size
