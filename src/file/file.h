@@ -9,7 +9,7 @@
 #define fclose CloseFile
 
 struct file;
-typedef file file;
+typedef struct file file;
 
 void FileInit(file* f, char filename[], char extension[], char* data, size_t size);
 //Returning file's descriptor if file made without errors and returning error's code

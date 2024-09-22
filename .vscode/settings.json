@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "memory.h": "c",
-        "screen.h": "c"
+        "screen.h": "c",
+        "__config": "cpp",
+        "algorithm": "cpp"
     }
 }
