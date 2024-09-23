@@ -59,3 +59,5 @@ Contains file creation, file opening, file reading, file writing, file closing, 
 - `get_key()` - returns scancode of pressed key
 Also it contains all scancodes of keyboard in format KR_<key> for released keys and KP_<key> for pressed keys
 Example: `KR_RIGHT_CTRL` for released right control key and `KP_RIGHT_CTRL` for pressed right control key
+## drivers/input.h
+- `input()` - returns string with pressed keys(befor enter without `\n`)
