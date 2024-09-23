@@ -3,6 +3,8 @@
         "memory.h": "c",
         "screen.h": "c",
         "__config": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "string.h": "c",
+        "lowlevel_io.h": "c"
     }
 }

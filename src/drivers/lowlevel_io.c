@@ -67,7 +67,7 @@ void    port_byte_out(unsigned short port, unsigned char data)
 }
 
 
-unsigned char   port_word_in(unsigned short port)
+unsigned short   port_word_in(unsigned char port)
 {
     /* Функция-обертка над assembly, читающая 2 байта из параметра port */
     /* Перемещаем результат в регистр AX т.к. размер AX == 2 байта */
