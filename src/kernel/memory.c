@@ -1,8 +1,8 @@
 #include "memory.h"
 #include "../common.h"
 
-unsigned int default_memory_block_size = 4096 /* 4 KiB */;
-unsigned int default_os_memory_size = 16*1024*1024;
+const unsigned int default_memory_block_size = 4096 /* 4 KiB */;
+const unsigned int default_os_memory_size = 16*1024*1024;
 
 struct memory_block {
     unsigned long long sector;
