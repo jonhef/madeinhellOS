@@ -1,6 +1,7 @@
 #include "input.h"
 #include "lowlevel_io.h"
 #include "keyboard.h"
+#include "screen.h"
 
 struct string input()
 {
@@ -422,6 +423,7 @@ struct string input()
             break;
         }
         key = get_key();
+        putchar(res.data[i], WHITE_ON_BLACK);
     }
     return res;
 }
