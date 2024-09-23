@@ -52,7 +52,7 @@ struct ptr* malloc(unsigned long long size)
     {
         if (iter_blocks->is_used == false)
         {
-            size_of_block += iter_blocks->sector;
+            size_of_block += default_memory_block_size;
             if (size_of_block >= size)
             {
                 break;
