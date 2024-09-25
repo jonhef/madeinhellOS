@@ -6,5 +6,6 @@
         "algorithm": "cpp",
         "string.h": "c",
         "lowlevel_io.h": "c"
-    }
+    },
+    "makefile.makefilePath": ""
 }

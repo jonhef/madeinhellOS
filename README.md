@@ -1,5 +1,8 @@
 # madeinhellOS
 ![](https://github.com/jonhef/madeinhellOS/blob/master/banner.png?raw=true)
+
+## IT'S A WORK IN PROGRESS(memory managment in work now, next will be threads)
+
 ## Common.h
 Contains types(u8, u16, u32, u64, s8, s16, s32, s64, bool)
 - `memcpy(u8 *src, u8 *dest, u32 bytes)` - copies u8 data from one memory location to another

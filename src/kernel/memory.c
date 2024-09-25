@@ -14,7 +14,7 @@ struct memory_block {
 //size of memory_block = 8B хуй
 //size of memory_blocks = get_memory_size() / default_memory_block_size * memory_block_size
 //first address of virtual memory
-struct memory_block* memory_blocks = (struct memory_block*)(unsigned int)(16*1024*1024);
+struct memory_block* memory_blocks = (struct memory_block*)(const unsigned int)(default_os_memory_size);
 struct memory_block* memory_blocks_end;
 
 void init_memory()
