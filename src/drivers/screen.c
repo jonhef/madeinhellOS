@@ -22,7 +22,7 @@ void	kprint(u8 *str)
 	while (*str)
 	{
 		putchar(*str, WHITE_ON_BLACK);
-		str++;
+		++str;
 	}
 }
 
